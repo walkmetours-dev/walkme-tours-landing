@@ -36,6 +36,8 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  /* Full Latin including accented chars */
+  unicode-range: U+0000-00FF, U+0100-024F, U+0250-02AF;
 }
 @font-face {
   font-family: "Travel Soulmates";
@@ -43,20 +45,23 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  /* Only basic ASCII — accented chars (á é í ó ú ñ) fall back to Inter */
+  unicode-range: U+0020-007E;
 }
 
 /* ---------- Design Tokens ---------- */
 :root {
-  --green: #00A651;
-  --green-dark: #007A3D;
-  --green-light: #E6F7EE;
-  --navy: #003366;
-  --navy-dark: #00224A;
-  --navy-soft: #0A4A8C;
-  --orange: #FF6B00;
-  --orange-soft: #FF8A33;
-  --yellow: #F4DC4F;
-  --pink: #E91E8C;
+  /* Brand palette — from WalkMe logo */
+  --green: #3D7A35;        /* forest green primario */
+  --green-dark: #2D5C27;   /* forest green oscuro */
+  --green-light: #E8F5E4;  /* forest green claro */
+  --navy: #2D5C27;         /* titulos / texto oscuro */
+  --navy-dark: #1F4020;
+  --navy-soft: #4A8C40;
+  --orange: #F5A623;       /* naranja logo */
+  --orange-soft: #F7BC5A;
+  --yellow: #F4DC4F;       /* amarillo "ME" del logo */
+  --pink: #E91E8C;         /* rosa "WALK" del logo */
   --gray-50: #F5F7FA;
   --gray-100: #F3F4F6;
   --gray-200: #E8ECF0;
@@ -64,7 +69,7 @@
   --gray-500: #6B7280;
   --gray-700: #374151;
   --gray-900: #111827;
-  --ink: #1A1A2E;
+  --ink: #1A2E1A;
 
   --display: "GT Eesti Pro Display", "Inter", system-ui, sans-serif;
   --accent-font: "Travel Soulmates", "Inter", cursive;
@@ -297,22 +302,23 @@ p { margin: 0; }
   color: white;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(170deg, #7A9038 0%, #8B9640 40%, #7A6B32 100%);
+  background: #3D7A35;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
+  /* grain texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
   z-index: -1;
-  opacity: 0.6;
 }
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 40%, rgba(255,255,255,0.08), transparent 60%);
+  background: radial-gradient(ellipse at 80% 20%, rgba(244,220,79,0.12), transparent 50%),
+              radial-gradient(ellipse at 10% 80%, rgba(229,30,140,0.08), transparent 40%);
   z-index: -1;
 }
 .hero-inner {
@@ -336,13 +342,13 @@ p { margin: 0; }
   gap: 8px;
   padding: 8px 16px;
   border-radius: 999px;
-  background: var(--yellow);
-  color: var(--navy);
+  background: var(--orange);
+  color: white;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 8px 22px rgba(244,220,79,0.35);
+  box-shadow: 0 8px 22px rgba(245,166,35,0.4);
 }
 .badge-pill .dot {
   width: 8px;
@@ -390,7 +396,7 @@ p { margin: 0; }
   right: -4%;
   bottom: 6%;
   height: 14%;
-  background: rgba(255,107,0,0.55);
+  background: rgba(229,30,140,0.45);
   z-index: -1;
   border-radius: 4px;
   transform: skewX(-8deg);
@@ -694,7 +700,7 @@ p { margin: 0; }
 /* ---------- Personalized ---------- */
 .personalized {
   position: relative;
-  background: linear-gradient(135deg, #007A3D 0%, #00A651 55%, #00B86A 100%);
+  background: linear-gradient(135deg, #2D5C27 0%, #3D7A35 55%, #4A8C40 100%);
   color: white;
   overflow: hidden;
   isolation: isolate;
@@ -1194,7 +1200,7 @@ p { margin: 0; }
 .cta-final {
   position: relative;
   color: white;
-  background: linear-gradient(120deg, var(--green) 0%, var(--green-dark) 40%, var(--navy) 100%);
+  background: linear-gradient(120deg, #3D7A35 0%, #2D5C27 50%, #1F4020 100%);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1428,7 +1434,7 @@ footer {
     <div class="hero-copy">
       <span class="badge-pill"><span class="dot" aria-hidden="true"></span>Promoción activa: Xcaret 3x2</span>
       <h1>
-        Pagás 2,<br/>
+        <span style="color:var(--pink);">Pagás</span> <span class="three-two">2,</span><br/>
         disfrutás <span class="three-two">3</span> parques
         <br/>en Playa del Carmen.
       </h1>
