@@ -297,37 +297,22 @@ p { margin: 0; }
   color: white;
   overflow: hidden;
   isolation: isolate;
-  background:
-    linear-gradient(135deg,
-      var(--navy-dark) 0%,
-      var(--navy) 28%,
-      #006A57 56%,
-      var(--green) 78%,
-      var(--orange) 100%);
+  background: linear-gradient(170deg, #7A9038 0%, #8B9640 40%, #7A6B32 100%);
 }
 .hero::before {
   content: "";
   position: absolute;
-  right: -10%;
-  top: -20%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 760px;
-  max-height: 760px;
-  background: radial-gradient(circle at center, rgba(244,220,79,0.55), rgba(255,107,0,0.25) 38%, transparent 65%);
-  filter: blur(8px);
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
   z-index: -1;
+  opacity: 0.6;
 }
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    repeating-radial-gradient(circle at 85% 20%,
-      rgba(255,255,255,0.06) 0,
-      rgba(255,255,255,0.06) 1px,
-      transparent 1px,
-      transparent 24px);
+  background: radial-gradient(ellipse at 70% 40%, rgba(255,255,255,0.08), transparent 60%);
   z-index: -1;
 }
 .hero-inner {
@@ -1443,7 +1428,7 @@ footer {
     <div class="hero-copy">
       <span class="badge-pill"><span class="dot" aria-hidden="true"></span>Promoción activa: Xcaret 3x2</span>
       <h1>
-        <span class="accent">Pagás 2,</span><br/>
+        Pagás 2,<br/>
         disfrutás <span class="three-two">3</span> parques
         <br/>en Playa del Carmen.
       </h1>
