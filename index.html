@@ -700,8 +700,8 @@ p { margin: 0; }
 /* ---------- Personalized ---------- */
 .personalized {
   position: relative;
-  background: linear-gradient(135deg, #2D5C27 0%, #3D7A35 55%, #4A8C40 100%);
-  color: white;
+  background: #F4DC4F;   /* amarillo "ME" del logo */
+  color: var(--green-dark);
   overflow: hidden;
   isolation: isolate;
 }
@@ -710,8 +710,8 @@ p { margin: 0; }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(244, 220, 79, 0.22), transparent 38%),
-    radial-gradient(circle at 88% 82%, rgba(255, 107, 0, 0.22), transparent 38%);
+    radial-gradient(circle at 5% 10%, rgba(229,30,140,0.10), transparent 35%),
+    radial-gradient(circle at 95% 90%, rgba(61,122,53,0.14), transparent 35%);
   z-index: -1;
 }
 .personalized::after {
@@ -720,8 +720,8 @@ p { margin: 0; }
   inset: 0;
   background-image: repeating-linear-gradient(
     -45deg,
-    rgba(255,255,255,0.04) 0 2px,
-    transparent 2px 22px
+    rgba(0,0,0,0.03) 0 1px,
+    transparent 1px 18px
   );
   z-index: -1;
 }
@@ -740,8 +740,8 @@ p { margin: 0; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: white;
-  color: var(--green-dark);
+  background: var(--green);
+  color: white;
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 800;
@@ -752,7 +752,7 @@ p { margin: 0; }
 .discount-tag .num {
   font-family: var(--display);
   font-size: 22px;
-  color: var(--orange);
+  color: var(--yellow);
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -763,12 +763,13 @@ p { margin: 0; }
   margin-top: 22px;
   line-height: 1;
   letter-spacing: -0.025em;
+  color: var(--green-dark);
   text-wrap: balance;
 }
 .personalized h2 .script {
   font-family: var(--accent-font);
   font-weight: 400;
-  color: var(--yellow);
+  color: var(--pink);
   display: inline-block;
   margin-right: 0.08em;
   font-size: 1.08em;
@@ -777,7 +778,7 @@ p { margin: 0; }
 .personalized .lead {
   margin-top: 18px;
   font-size: 18px;
-  color: rgba(255,255,255,0.92);
+  color: rgba(45,92,39,0.85);
   max-width: 50ch;
   line-height: 1.55;
 }
@@ -794,14 +795,15 @@ p { margin: 0; }
   gap: 14px;
   align-items: flex-start;
   font-size: 16px;
-  color: rgba(255,255,255,0.96);
+  color: var(--green-dark);
+  font-weight: 500;
 }
 .benefit-list .ico {
   flex: none;
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.18);
+  background: var(--green);
   display: grid;
   place-items: center;
   color: white;
@@ -814,77 +816,82 @@ p { margin: 0; }
 }
 .personalized-trust {
   font-size: 13px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(45,92,39,0.75);
 }
 
 /* Personalized visual collage */
 .pers-visual {
   position: relative;
-  aspect-ratio: 1 / 1;
-  max-width: 480px;
+  width: 100%;
+  max-width: 420px;
+  height: 380px;
   margin-left: auto;
   margin-right: auto;
 }
+@media (min-width: 920px) { .pers-visual { height: 440px; max-width: 460px; } }
+
 .pers-tile {
   position: absolute;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   overflow: hidden;
   background: white;
-  box-shadow: var(--shadow-feature);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
 }
-.pers-tile img { aspect-ratio: 3/2; object-fit: cover; }
+.pers-tile img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 .pers-tile .meta {
-  padding: 10px 14px;
-  font-size: 13px;
-  color: var(--navy);
-  font-weight: 600;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--green-dark);
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: white;
 }
 .pers-tile .meta .check {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--green);
   color: white;
   display: grid;
   place-items: center;
+  flex: none;
 }
-.pt-1 { top: 4%;    left: 6%;   width: 52%; transform: rotate(-4deg); }
-.pt-2 { top: 12%;   right: 4%;  width: 46%; transform: rotate(3deg);  }
-.pt-3 { bottom: 4%; left: 14%;  width: 52%; transform: rotate(2deg);  }
-.pt-4 { bottom: 16%; right: 6%; width: 44%; transform: rotate(-3deg); }
+.pt-1 { top: 0;     left: 0;    width: 48%; transform: rotate(-3deg); z-index: 1; }
+.pt-2 { top: 5%;    right: 0;   width: 44%; transform: rotate(3deg);  z-index: 1; }
+.pt-3 { bottom: 0;  left: 6%;   width: 46%; transform: rotate(2deg);  z-index: 2; }
+.pt-4 { bottom: 8%; right: 2%;  width: 42%; transform: rotate(-2deg); z-index: 2; }
 
 .pers-stamp {
   position: absolute;
-  z-index: 4;
-  top: 40%;
-  left: 40%;
-  width: 140px;
-  height: 140px;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--green);
   color: white;
   display: grid;
   place-items: center;
   text-align: center;
   font-family: var(--display);
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   letter-spacing: -0.02em;
-  box-shadow: 0 20px 50px rgba(255, 107, 0, 0.5);
-  transform: rotate(-8deg);
+  box-shadow: 0 16px 40px rgba(61,122,53,0.5);
 }
 .pers-stamp small {
   display: block;
   font-family: var(--body);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  margin-top: 6px;
+  letter-spacing: 0.14em;
+  margin-top: 5px;
   text-transform: uppercase;
 }
 
