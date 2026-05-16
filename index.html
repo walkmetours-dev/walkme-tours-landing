@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Walkme Tours — Paquetes Xcaret 3x2 desde Playa del Carmen</title>
-<meta name="description" content="Agencia oficial de paquetes Xcaret 3x2 desde Playa del Carmen. Reserva por WhatsApp con asesoría personalizada. E-bikes y paquetes personalizados con 20% de descuento." />
-<meta name="theme-color" content="#003366" />
+<title>Walkme Tours — Parques Xcaret con Transporte desde Playa del Carmen | Agencia Oficial</title>
+<meta name="description" content="Reserva tours y parques del Grupo Xcaret desde Playa del Carmen con transporte incluido. Precio taquilla, asesoría personalizada por WhatsApp y combo 3x2. Walkme Tours, agencia oficial." />
+<meta name="keywords" content="parques Xcaret Playa del Carmen, tours Xcaret transporte, Xel-Ha precio, Xenotes, Xenses, Xplor, paquetes Xcaret 3x2, agencia Xcaret PDC" />
+<meta name="theme-color" content="#3D7A35" />
 <link rel="icon" type="image/png" href="project/assets/walkme-logo.png" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Walkme Tours — Xcaret 3x2 desde Playa del Carmen" />
-<meta property="og:description" content="Pagás 2 parques y disfrutás 3. Reserva por WhatsApp con asesoría personalizada." />
+<meta property="og:title" content="Walkme Tours — Parques Xcaret + Transporte desde Playa del Carmen" />
+<meta property="og:description" content="Agencia oficial Grupo Xcaret en Playa del Carmen. Precio taquilla con transporte incluido. Xcaret Plus, Xel-Há, Xenotes, Xplor y más. Reserva fácil por WhatsApp." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://walkmetours.com" />
 <meta property="og:image" content="project/assets/parks/xcaret-plus.png" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Walkme Tours — Xcaret 3x2 desde Playa del Carmen" />
-<meta name="twitter:description" content="Pagás 2 parques y disfrutás 3. Reserva por WhatsApp con asesoría personalizada." />
+<meta name="twitter:title" content="Walkme Tours — Parques Xcaret + Transporte desde Playa del Carmen" />
+<meta name="twitter:description" content="Precio taquilla con transporte incluido. Xcaret Plus, Xel-Há, Xenotes, Xplor y más. Reserva por WhatsApp." />
 
 <!-- Canonical -->
 <link rel="canonical" href="https://walkmetours.com" />
@@ -1385,6 +1386,171 @@ footer {
   border-radius: 4px;
 }
 
+/* ---------- Parks section ---------- */
+#parques { background: white; }
+
+.parks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 600px)  { .parks-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px)  { .parks-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1200px) { .parks-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.park-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray-200);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.park-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.park-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+}
+.park-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.park-card:hover .park-media img { transform: scale(1.07); }
+.park-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%);
+}
+.park-media .park-name-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  color: white;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.park-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.park-body {
+  padding: 20px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+.park-desc {
+  font-size: 13.5px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+.park-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: auto;
+}
+.park-price-row .from {
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+.park-price-row .amount {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.park-price-row .ccy {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+}
+.park-price-row .transport {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.park-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: background .18s ease, color .18s ease;
+  text-align: center;
+}
+.park-cta:hover { background: var(--green); color: white; }
+.park-cta svg { flex: none; }
+
+.parks-note {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+.parks-note strong { color: var(--ink); }
+
+/* park placeholder (no image) */
+.park-media-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.75);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.park-media-placeholder svg { opacity: 0.6; }
+
 /* ---------- Responsive small tweaks ---------- */
 @media (max-width: 979px) { .hero-visual { display: none; } }
 
@@ -1405,10 +1571,10 @@ footer {
     </a>
 
     <nav class="nav-links" aria-label="Navegación principal">
-      <a href="#combos">Paquetes Xcaret</a>
+      <a href="#parques">Parques Xcaret</a>
+      <a href="#combos">Combos 3x2</a>
       <a href="#personalizado">Personalizado</a>
       <a href="#ebikes">E-Bikes</a>
-      <a href="#how">Cómo Funciona</a>
       <a href="#faq">FAQ</a>
     </nav>
 
@@ -1423,10 +1589,10 @@ footer {
   </div>
 
   <nav class="nav-mobile-menu" id="mobile-menu" aria-label="Menú móvil">
-    <a href="#combos"       onclick="closeMobileMenu()">Paquetes Xcaret</a>
+    <a href="#parques"      onclick="closeMobileMenu()">Parques Xcaret</a>
+    <a href="#combos"       onclick="closeMobileMenu()">Combos 3x2</a>
     <a href="#personalizado" onclick="closeMobileMenu()">Personalizado</a>
     <a href="#ebikes"       onclick="closeMobileMenu()">E-Bikes</a>
-    <a href="#how"          onclick="closeMobileMenu()">Cómo Funciona</a>
     <a href="#faq"          onclick="closeMobileMenu()">FAQ</a>
     <a href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar" target="_blank" rel="noopener" style="color:var(--green);">
       📲 Hablar por WhatsApp
@@ -1439,27 +1605,27 @@ footer {
 <section class="hero" aria-label="Inicio — Paquetes Xcaret 3x2">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <span class="badge-pill"><span class="dot" aria-hidden="true"></span>Promoción activa: Xcaret 3x2</span>
+      <span class="badge-pill"><span class="dot" aria-hidden="true"></span>Agencia Oficial Grupo Xcaret · PDC</span>
       <h1>
-        <span style="color:var(--pink);">Pagás</span> <span class="three-two">2,</span><br/>
-        disfrutás <span class="three-two">3</span> parques
-        <br/>en Playa del Carmen.
+        Todos los parques<br/>
+        Xcaret <span class="three-two">con transporte</span><br/>
+        <span style="color:var(--yellow);">desde Playa del Carmen.</span>
       </h1>
       <p class="lead">
-        Paquetes Xcaret 3x2 con transporte y asesoría personalizada por WhatsApp.
-        Reserva fácil con Walkme Tours, tu agencia local en Playa del Carmen.
+        Reserva Xcaret Plus, Xel-Há, Xenotes, Xplor y más con precio taquilla y transporte incluido.
+        Asesoría personalizada por WhatsApp — sin filas, sin complicaciones.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-wa-light" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar" target="_blank" rel="noopener">
+        <a class="btn btn-wa-light" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20un%20parque%20Xcaret" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#00A651" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
           Reservar por WhatsApp
         </a>
-        <a class="btn btn-ghost" href="#combos">Ver combos Xcaret</a>
+        <a class="btn btn-ghost" href="#parques">Ver todos los parques</a>
       </div>
       <div class="trust-row" role="list">
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Precios sujetos a disponibilidad</span>
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Transporte incluido</span>
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Respuesta en minutos</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Precio taquilla oficial</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Transporte desde PDC incluido</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Combo 3x2 disponible</span>
       </div>
     </div>
 
@@ -1492,6 +1658,207 @@ footer {
   <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 30 C 240 0, 480 60, 720 30 C 960 0, 1200 60, 1440 30 L1440 60 L0 60 Z" fill="#F5F7FA"/>
   </svg>
+</section>
+
+<!-- ============ PARQUES XCARET ============ -->
+<section class="section" id="parques" aria-labelledby="parques-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Catálogo completo</span>
+      <h2 class="section-title" id="parques-title">Parques &amp; Experiencias <em style="font-style:normal;color:var(--green);">Grupo Xcaret</em></h2>
+      <p class="section-subtitle">Precio taquilla con transporte incluido desde Playa del Carmen. Escríbenos por WhatsApp para confirmar disponibilidad y precio exacto de tu fecha.</p>
+    </div>
+
+    <div class="parks-grid">
+
+      <!-- Xcaret Plus -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🌿 Naturaleza</span>
+          <img src="project/assets/parks/xcaret-plus.png" alt="Xcaret Plus — parque natural con ríos subterráneos y show nocturno" loading="lazy" />
+          <div class="park-name-overlay">Xcaret Plus</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">El parque ícono del Caribe mexicano. Ríos subterráneos, arrecife de coral, mariposas y el espectáculo México Espectacular incluido.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,990</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xcaret%20Plus" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xel-Há -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🤿 Todo incluido</span>
+          <img src="project/assets/parks/xelha.jpg" alt="Xel-Há — parque acuático todo incluido con snorkel en laguna natural" loading="lazy" />
+          <div class="park-name-overlay">Xel-Há</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">La laguna natural más grande del mundo para snorkel. Todo incluido: comida, bebidas ilimitadas, actividades acuáticas y más.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$2,130</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xel-H%C3%A1" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xenotes -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">💧 Cenotes</span>
+          <img src="project/assets/parks/xenotes.jpg" alt="Xenotes — tour por 4 cenotes únicos en la selva maya" loading="lazy" />
+          <div class="park-name-overlay">Xenotes</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">Recorre 4 cenotes únicos clasificados por letras: kayak, tirolesa, rappel y nado en aguas cristalinas de la selva maya.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,450</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xenotes" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xenses -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🎭 Sensaciones</span>
+          <img src="project/assets/parks/xenses.jpg" alt="Xenses — parque de los sentidos con experiencias únicas" loading="lazy" />
+          <div class="park-name-overlay">Xenses</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">El parque de los sentidos. Más de 15 actividades que desafían tu percepción: ilusiones ópticas, ríos de barro, vuelo y mucho más.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,090</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xenses" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xplor -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">⚡ Aventura</span>
+          <img src="project/assets/parks/xplor.jpg" alt="Xplor — tirolesas, cuatriciclos y cenotes subterráneos" loading="lazy" />
+          <div class="park-name-overlay">Xplor</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">Adrenalina pura: 14 tirolesas, cuatriciclos por la selva, balsas en ríos subterráneos y cenotes. El parque de aventura más extremo de México.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,990</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xplor" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xoximilco -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🎉 Fiesta nocturna</span>
+          <img src="project/assets/parks/xoximilco.jpg" alt="Xoximilco — fiesta mexicana en trajineras con gastronomía y mariachi" loading="lazy" />
+          <div class="park-name-overlay">Xoximilco</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">La fiesta más mexicana del Caribe. Navega en trajineras al estilo de Xochimilco con gastronomía típica, tequila, mariachi y música en vivo.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,490</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xoximilco" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xcaret Arte (Noche) -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🌙 Show nocturno</span>
+          <img src="project/assets/parks/xcaret-noche.jpg" alt="Xcaret Arte — espectáculo México Espectacular con folclore mexicano" loading="lazy" />
+          <div class="park-name-overlay">Xcaret Arte</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">El espectáculo cultural más impresionante de México. Danza folclórica, prehispánica, mariachi y más de 300 artistas en escena cada noche.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,790</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xcaret%20Arte" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Xichen (Chichén Itzá) -->
+      <article class="park-card">
+        <div class="park-media" style="background: linear-gradient(135deg, #7B4F2E 0%, #C49A6C 50%, #E8C89A 100%);">
+          <span class="park-tag">🏛 Arqueología</span>
+          <div class="park-media-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <path d="M3 21h18M3 21l9-18 9 18M9 21V9l3-6 3 6v12"/>
+            </svg>
+            <span>Chichén Itzá</span>
+          </div>
+          <div class="park-name-overlay">Xichen · Chichén Itzá</div>
+        </div>
+        <div class="park-body">
+          <p class="park-desc">Visita la séptima maravilla del mundo moderno. Tour guiado por las ruinas mayas, Cenote Ik Kil y almuerzo típico yucateco incluido.</p>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$2,090</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xichen%20Chich%C3%A9n%20Itz%C3%A1" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="parks-note">
+      <strong>Precios taquilla con transporte desde Playa del Carmen.</strong> Sujetos a disponibilidad y temporada.<br/>
+      ¿Querés combinar 2 o más parques? <a href="#combos" style="color:var(--green);font-weight:600;">Mirá nuestros combos 3x2</a> o <a href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20varios%20parques" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">cotizá tu paquete personalizado</a>.
+    </p>
+  </div>
 </section>
 
 <!-- ============ COMBOS ============ -->
@@ -1783,7 +2150,7 @@ footer {
 
     <div class="how-explain" role="note">
       Nuestro equipo te ayuda a elegir la mejor opción según tu fecha, hotel, presupuesto y tipo de viaje.
-      Respuesta rápida garantizada en horarios de 9:00 AM a 7:00 PM.
+      Respuesta rápida garantizada en horarios de 10:00 AM a 7:00 PM, lunes a sábado. Los domingos atendemos solo por WhatsApp.
     </div>
   </div>
 </section>
@@ -1952,7 +2319,8 @@ footer {
     <div class="footer-col">
       <h4>Links útiles</h4>
       <ul>
-        <li><a href="#combos">Paquetes Xcaret</a></li>
+        <li><a href="#parques">Parques Xcaret</a></li>
+        <li><a href="#combos">Combos 3x2</a></li>
         <li><a href="#personalizado">Paquete Personalizado</a></li>
         <li><a href="#ebikes">E-Bikes</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -1971,7 +2339,7 @@ footer {
       </div>
       <div class="footer-contact-row">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>5ta Av entre 10 y 12<br/>Playa del Carmen, Q. Roo<br/><small style="opacity:.7;">Horarios: 9:00 AM – 7:00 PM</small></span>
+        <span>5ta Av entre 10 y 12<br/>Playa del Carmen, Q. Roo<br/><small style="opacity:.7;">Lun–Sáb: 10:00 AM – 7:00 PM · Dom: WhatsApp</small></span>
       </div>
     </div>
 
