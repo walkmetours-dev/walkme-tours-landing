@@ -542,12 +542,12 @@ p { margin: 0; }
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--navy), var(--green));
+  background: #fff;
 }
 .combo-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform .5s ease;
 }
 .combo-card:hover .combo-media img { transform: scale(1.06); }
@@ -555,7 +555,7 @@ p { margin: 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 34, 74, 0.28), transparent 50%);
+  background: none;
 }
 
 .featured-badge {
@@ -716,11 +716,7 @@ p { margin: 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(0,0,0,0.03) 0 1px,
-    transparent 1px 18px
-  );
+  background: none;
   z-index: -1;
 }
 
@@ -868,29 +864,33 @@ p { margin: 0; }
   z-index: 5;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-8deg);
-  width: 130px;
-  height: 130px;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: var(--green);
   color: white;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   font-family: var(--display);
-  font-size: 26px;
-  line-height: 1;
+  font-size: 28px;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  box-shadow: 0 16px 40px rgba(61,122,53,0.5);
+  box-shadow: 0 8px 24px rgba(61,122,53,0.4);
+  padding: 8px;
 }
 .pers-stamp small {
   display: block;
   font-family: var(--body);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  margin-top: 5px;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
   text-transform: uppercase;
+  line-height: 1.3;
 }
 
 /* ---------- E-bikes ---------- */
@@ -1475,6 +1475,27 @@ footer {
   color: var(--gray-500);
   line-height: 1.5;
 }
+.park-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.park-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--gray-700);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.park-features li svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--green);
+}
 .park-price-row {
   display: flex;
   align-items: baseline;
@@ -1632,7 +1653,7 @@ footer {
         <div class="label">Xcaret Plus</div>
       </div>
       <div class="hv-card hv-2">
-        <img src="project/assets/parks/xelha.jpg" alt="" />
+        <img src="project/assets/parks/xel-ha.jpg" alt="" />
         <div class="label">Xel-Há</div>
       </div>
       <div class="hv-card hv-3">
@@ -1674,18 +1695,24 @@ footer {
       <article class="park-card">
         <div class="park-media">
           <span class="park-tag">🌿 Día completo</span>
-          <img src="project/assets/parks/xcaret-plus.png" alt="Xcaret México Full Day — más de 50 atractivos naturales y culturales" loading="lazy" />
-          <div class="park-name-overlay">Xcaret México · Full Day</div>
+          <img src="project/assets/parks/xcaret-full-day.jpg" alt="Xcaret México Full Day — más de 50 atractivos naturales y culturales" loading="lazy" />
+          <div class="park-name-overlay">Xcaret Básico</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">+50 atractivos naturales y culturales: ríos subterráneos, arrecife de coral, mariposario, acuario y Xcaret México Espectacular. Niños 0–4 gratis.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+50 atractivos naturales y culturales</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ríos subterráneos y arrecife de coral</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mariposario y acuario</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Show Xcaret México Espectacular</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Niños 0–4 gratis</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,690</span>
+            <span class="amount">$3,237</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
-          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xcaret%20Full%20Day" target="_blank" rel="noopener">
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20Xcaret%20B%C3%A1sico" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
             Cotizar por WhatsApp
           </a>
@@ -1697,13 +1724,19 @@ footer {
         <div class="park-media">
           <span class="park-tag">⭐ Plus</span>
           <img src="project/assets/parks/xcaret-plus.png" alt="Xcaret Plus — Full Day más buffet, bebidas y snorkel incluido" loading="lazy" />
-          <div class="park-name-overlay">Xcaret México · Plus</div>
+          <div class="park-name-overlay">Xcaret Plus</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Todo lo del Full Day más: buffet + cerveza + bebidas sin alcohol durante comida + equipo de snorkel + acceso Área Plus + show México Espectacular.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Todo lo del Básico incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Buffet + cerveza + bebidas sin alcohol</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Equipo de snorkel incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Acceso Área Plus</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Show México Espectacular</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,990</span>
+            <span class="amount">$3,718</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1719,13 +1752,19 @@ footer {
         <div class="park-media">
           <span class="park-tag">🌙 Nocturno</span>
           <img src="project/assets/parks/xcaret-noche.jpg" alt="Xcaret Noche — ingreso al parque y show México Espectacular" loading="lazy" />
-          <div class="park-name-overlay">Xcaret México · Noche</div>
+          <div class="park-name-overlay">Xcaret de Noche</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Ingreso al parque desde las 4:00 PM + Xcaret México Espectacular: danzas folclóricas, prehispánicas y mariachi con más de 300 artistas en escena.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ingreso desde las 4:00 PM</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Xcaret México Espectacular</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Danzas folclóricas y prehispánicas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mariachi en escena</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+300 artistas en escenario</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,390</span>
+            <span class="amount">$2,497</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1742,14 +1781,20 @@ footer {
       <article class="park-card">
         <div class="park-media">
           <span class="park-tag">🤿 Todo incluido</span>
-          <img src="project/assets/parks/xelha.jpg" alt="Xel-Há — parque acuático todo incluido con snorkel en laguna natural" loading="lazy" />
-          <div class="park-name-overlay">Xel-Há</div>
+          <img src="project/assets/parks/xel-ha.jpg" alt="Xel-Há — parque acuático todo incluido con snorkel en laguna natural" loading="lazy" />
+          <div class="park-name-overlay">Xel-Há Todo Incluido</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">La laguna natural más grande del mundo. Todo incluido: snorkel, comida, bebidas ilimitadas, toboganes, hamacas y actividades acuáticas.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Laguna natural más grande del mundo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Todo incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Snorkel, toboganes y hamacas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Comida incluida</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bebidas ilimitadas</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$2,130</span>
+            <span class="amount">$3,052</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1765,14 +1810,19 @@ footer {
       <article class="park-card">
         <div class="park-media">
           <span class="park-tag">💧 Cenotes</span>
-          <img src="project/assets/parks/xenotes.jpg" alt="Xenotes — tour por 4 cenotes únicos en la selva maya" loading="lazy" />
+          <img src="project/assets/parks/tour-xenotes.png" alt="Xenotes — tour por 4 cenotes únicos en la selva maya" loading="lazy" />
           <div class="park-name-overlay">Xenotes</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">4 cenotes únicos, cada uno con actividad distinta: kayak, tirolesa, rappel y nado libre en aguas cristalinas de la selva maya.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>4 cenotes únicos en la selva maya</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kayak, tirolesa y rappel</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Nado libre en aguas cristalinas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Actividad diferente en cada cenote</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,450</span>
+            <span class="amount">$2,941</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1792,10 +1842,15 @@ footer {
           <div class="park-name-overlay">Xenses</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">+15 actividades que engañan tus sentidos: ilusiones ópticas, ríos de barro, vuelo, parque de agilidad y mucho más. El más sorprendente.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+15 actividades que engañan los sentidos</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ilusiones ópticas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ríos de barro y vuelo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Parque de agilidad</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,090</span>
+            <span class="amount">$2,127</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1816,10 +1871,15 @@ footer {
           <div class="park-name-overlay">Xplor</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">14 tirolesas, cuatrimoto por la selva, balsas en ríos subterráneos y nado en cenotes. El parque de aventura más intenso de la Riviera Maya.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>14 tirolesas por la selva</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cuatrimoto por la selva</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Balsas en ríos subterráneos</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Nado en cenotes</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,990</span>
+            <span class="amount">$3,422</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1832,21 +1892,23 @@ footer {
 
       <!-- Xplor Fuego Noche -->
       <article class="park-card">
-        <div class="park-media" style="background: linear-gradient(135deg, #3D0C02 0%, #8B2500 50%, #C44000 100%);">
+        <div class="park-media">
           <span class="park-tag">🔥 Aventura · Noche</span>
-          <div class="park-media-placeholder">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-              <path d="M12 2c0 6-6 8-6 14a6 6 0 0 0 12 0c0-6-6-8-6-14z"/><path d="M9 18c0-3 3-4 3-7 1.5 2 2 4 2 7"/>
-            </svg>
-            <span>Xplor Fuego</span>
-          </div>
-          <div class="park-name-overlay">Xplor Fuego · Nocturno</div>
+          <img src="project/assets/parks/xplor-fuego.jpg" alt="Xplor Fuego — aventura nocturna en tirolesas y vehículos anfibios" loading="lazy" />
+          <div class="park-name-overlay">Xplor Fuego</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Tirolesas bajo el atardecer y las estrellas · Vehículo anfibio nocturno · Hamacuatizaje · Caminos subterráneos · Ríos subterráneos · Toboganxote 5 en 1 · Incluye buffet, snacks y bebidas sin alcohol ilimitadas. Desde 5 años. Lun–Sáb 5:30–11:00 PM.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tirolesas al atardecer y bajo las estrellas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Vehículo anfibio nocturno</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hamacuatizaje y ríos subterráneos</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Toboganxote 5 en 1</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Buffet, snacks y bebidas incluidas</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Lun–Sáb 5:30–11:00 PM</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$2,090</span>
+            <span class="amount">$3,052</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1862,14 +1924,19 @@ footer {
       <article class="park-card">
         <div class="park-media">
           <span class="park-tag">🎉 Fiesta nocturna</span>
-          <img src="project/assets/parks/xoximilco.jpg" alt="Xoximilco — fiesta mexicana en trajineras con gastronomía y mariachi" loading="lazy" />
+          <img src="project/assets/parks/xoximilco.png" alt="Xoximilco — fiesta mexicana en trajineras con gastronomía y mariachi" loading="lazy" />
           <div class="park-name-overlay">Xoximilco</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Fiesta mexicana en trajineras: gastronomía típica, tequila, mariachi, cumbia y música en vivo. El tour nocturno más festivo de la Riviera Maya.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fiesta mexicana en trajineras</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gastronomía típica mexicana</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tequila, mariachi y cumbia</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>El tour nocturno más festivo</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$1,490</span>
+            <span class="amount">$2,867</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1884,21 +1951,22 @@ footer {
 
       <!-- Xichen Clásico -->
       <article class="park-card">
-        <div class="park-media" style="background: linear-gradient(135deg, #7B4F2E 0%, #C49A6C 60%, #E8C89A 100%);">
+        <div class="park-media">
           <span class="park-tag">🏛 Arqueología · Clásico</span>
-          <div class="park-media-placeholder">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-              <path d="M3 21h18M3 21l9-18 9 18M9 21V9l3-6 3 6v12"/>
-            </svg>
-            <span>Xichen Clásico</span>
-          </div>
-          <div class="park-name-overlay">Xichen Clásico</div>
+          <img src="project/assets/parks/Tour-Xhich%C3%A9n-Itz%C3%A1-Cl%C3%A1sico-xcaret.png" alt="Xichén Itzá Clásico — visita guiada a la pirámide maya con cenote" loading="lazy" />
+          <div class="park-name-overlay">Xichén Clásico</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Autobús panorámico ida y vuelta · Visita al Pueblo Mágico de Valladolid · Recorrido guiado en Chichén Itzá · Nado en cenote (llevar traje de baño y toalla) · Buffet con bebida de aguas frescas. Lun–Sáb desde 7:00 AM.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Autobús panorámico ida y vuelta</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Visita a Valladolid (Pueblo Mágico)</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Recorrido guiado en Chichén Itzá</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Nado en cenote incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Buffet con aguas frescas</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$2,090</span>
+            <span class="amount">$3,052</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1911,21 +1979,22 @@ footer {
 
       <!-- Xichen Deluxe -->
       <article class="park-card">
-        <div class="park-media" style="background: linear-gradient(135deg, #4A2000 0%, #8B5E3C 50%, #C49A6C 100%);">
+        <div class="park-media">
           <span class="park-tag">🏛 Arqueología · Deluxe</span>
-          <div class="park-media-placeholder">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-              <path d="M3 21h18M3 21l9-18 9 18M9 21V9l3-6 3 6v12"/><path d="M7 21v-4h4v4M13 21v-4h4v4"/>
-            </svg>
-            <span>Xichen Deluxe</span>
-          </div>
-          <div class="park-name-overlay">Xichen Deluxe</div>
+          <img src="project/assets/parks/xichen-deluxe_TourCenoteXIMIY.jpg" alt="Xichén Itzá Deluxe — tour premium bilingüe con radio-guía y buffet gourmet" loading="lazy" />
+          <div class="park-name-overlay">Xichén Deluxe</div>
         </div>
         <div class="park-body">
-          <p class="park-desc">Autobús panorámico + refrescos, agua y cervezas a bordo · Desayuno ligero (baguette, panqué y jugo) · Guía certificado bilingüe con radio-guía y audífonos · Nado en cenote (chaleco incluido) · Buffet gastronomía yucateca en La Casona de Valladolid. Lun–Sáb desde 7:00 AM.</p>
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Autobús + refrescos, agua y cervezas a bordo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Desayuno ligero incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Guía bilingüe certificado con audioguía</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Nado en cenote (chaleco incluido)</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Buffet gastronomía yucateca</li>
+          </ul>
           <div class="park-price-row">
             <span class="from">Desde</span>
-            <span class="amount">$2,490</span>
+            <span class="amount">$3,422</span>
             <span class="ccy">MXN</span>
             <span class="transport">🚐 transporte PDC</span>
           </div>
@@ -1936,10 +2005,150 @@ footer {
         </div>
       </article>
 
+      <!-- ── CATAMARANES ───────────────────────────── -->
+
+      <!-- Catamarán Xailing Light · Isla Mujeres -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">⛵ Catamarán · Día</span>
+          <img src="project/assets/parks/xialing-light-catamaran-isla-mujeres.png" alt="Catamarán Xailing Light — excursión a Isla Mujeres" loading="lazy" />
+          <div class="park-name-overlay">Catamarán Light</div>
+        </div>
+        <div class="park-body">
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Excursión a Isla Mujeres</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Snorkel incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tiempo libre en la isla</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bebidas a bordo</li>
+          </ul>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$2,386</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20Catamaran%20Xailing%20Light%20Isla%20Mujeres" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Catamarán Xailing Deluxe · Isla Mujeres -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">⛵ Catamarán · Deluxe</span>
+          <img src="project/assets/parks/xialing_deluxe.jpg" alt="Catamarán Xailing Deluxe — excursión premium a Isla Mujeres" loading="lazy" />
+          <div class="park-name-overlay">Catamarán Prime</div>
+        </div>
+        <div class="park-body">
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Excursión premium a Isla Mujeres</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Open bar a bordo</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Almuerzo incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Snorkel incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tiempo libre en la isla</li>
+          </ul>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$3,126</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20Catamaran%20Xailing%20Deluxe%20Isla%20Mujeres" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- Fury Catamarán · Cozumel -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">⛵ Catamarán · Cozumel</span>
+          <img src="project/assets/parks/fury-catamara-xcaret-cozumel-walkme.jpg" alt="Fury Catamarán Cozumel — snorkel y playa en la isla" loading="lazy" />
+          <div class="park-name-overlay">Catamarán Fury Cozumel</div>
+        </div>
+        <div class="park-body">
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Excursión a Cozumel</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Snorkel en arrecife de coral</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tiempo en playa incluido</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bebidas incluidas</li>
+          </ul>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,664</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20Fury%20Catamaran%20Cozumel" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- ── ATV XPERIENCE ─────────────────────────── -->
+
+      <!-- ATV Xperience Doble -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🏍 ATV · Aventura</span>
+          <img src="project/assets/parks/Tour%20ATV%20XPERIENCE%20DOBLE.jpg" alt="ATV Xperience Doble — recorrido en cuatrimoto por la selva maya" loading="lazy" />
+          <div class="park-name-overlay">ATV Xperience Doble</div>
+        </div>
+        <div class="park-body">
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cuatrimoto doble por la selva maya</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Caminos de tierra y cenotes</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Experiencia off-road guiada</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ideal para parejas y amigos</li>
+          </ul>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$1,831</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20ATV%20Xperience%20Doble" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- ATV Xperience Sencilla -->
+      <article class="park-card">
+        <div class="park-media">
+          <span class="park-tag">🏍 ATV · Aventura</span>
+          <img src="project/assets/parks/Tour%20ATV%20XPERIENCE%20%20sencilla.jpg" alt="ATV Xperience Sencilla — recorrido en cuatrimoto individual por la selva" loading="lazy" />
+          <div class="park-name-overlay">ATV Xperience Sencilla</div>
+        </div>
+        <div class="park-body">
+          <ul class="park-features">
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cuatrimoto individual por la selva maya</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Aventura off-road guiada</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Caminos de tierra y naturaleza</li>
+            <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Perfecto para ir solo</li>
+          </ul>
+          <div class="park-price-row">
+            <span class="from">Desde</span>
+            <span class="amount">$2,201</span>
+            <span class="ccy">MXN</span>
+            <span class="transport">🚐 transporte PDC</span>
+          </div>
+          <a class="park-cta" href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20ATV%20Xperience%20Sencilla" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+        </div>
+      </article>
+
     </div>
 
     <p class="parks-note">
-      <strong>Precios taquilla con transporte desde Playa del Carmen.</strong> Sujetos a disponibilidad y temporada.<br/>
+      <strong>Precios en MXN con transporte desde Playa del Carmen.</strong> Para salidas sin transporte, desde Cancún o Riviera Maya, <a href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20sin%20transporte" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">escríbenos por WhatsApp</a>.<br/>
       ¿Querés combinar 2 o más parques? <a href="#combos" style="color:var(--green);font-weight:600;">Mirá nuestros combos 3x2</a> o <a href="https://wa.me/525563974812?text=Hola%20Walkme%20Tours,%20quiero%20cotizar%20varios%20parques" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">cotizá tu paquete personalizado</a>.
     </p>
   </div>
@@ -1959,7 +2168,7 @@ footer {
       <!-- Combo 1 -->
       <article class="combo-card">
         <div class="combo-media">
-          <img src="project/assets/parks/xcaret-plus.png" alt="Xcaret Plus — parque natural con ríos subterráneos y arrecife de coral" loading="lazy" />
+          <img src="project/assets/parks/Xcaret%20Plus%20%2B%20Xel-H%C3%A1%20Todo%20Incluido%20%2B%20Xenses-combo-1.png" alt="Combo Xcaret Plus + Xel-Há Todo Incluido + Xenses" loading="lazy" />
         </div>
         <div class="combo-body">
           <div class="combo-title-row">
@@ -1967,8 +2176,8 @@ footer {
             <span class="combo-tag">Combo 1</span>
           </div>
           <div class="combo-price">
-            <span class="amount">$409</span>
-            <span class="currency">USD</span>
+            <span class="amount">$7,030</span>
+            <span class="currency">MXN</span>
             <span class="per">/ adulto</span>
           </div>
           <div class="combo-includes">
@@ -1997,7 +2206,7 @@ footer {
       <!-- Combo 2 -->
       <article class="combo-card">
         <div class="combo-media">
-          <img src="project/assets/parks/xoximilco.jpg" alt="Xoximilco — tour nocturno en trajineras con gastronomía mexicana" loading="lazy" />
+          <img src="project/assets/parks/Xcaret%20Plus%20%2B%20Xoximilco%20%2B%20Xenses-combo-2.png" alt="Combo Xcaret Plus + Xoximilco + Xenses" loading="lazy" />
         </div>
         <div class="combo-body">
           <div class="combo-title-row">
@@ -2005,8 +2214,8 @@ footer {
             <span class="combo-tag">Combo 2</span>
           </div>
           <div class="combo-price">
-            <span class="amount">$374</span>
-            <span class="currency">USD</span>
+            <span class="amount">$6,660</span>
+            <span class="currency">MXN</span>
             <span class="per">/ adulto</span>
           </div>
           <div class="combo-includes">
@@ -2036,7 +2245,7 @@ footer {
       <article class="combo-card featured">
         <div class="combo-media">
           <span class="featured-badge">🔥 Más aventura</span>
-          <img src="project/assets/parks/xplor.jpg" alt="Xplor — tirolesas, cuatriciclos y cenotes" loading="lazy" />
+          <img src="project/assets/parks/Xcaret%20Plus%20%2B%20Xplor%20%2B%20Xenses-combo-3.png" alt="Combo Xcaret Plus + Xplor + Xenses" loading="lazy" />
         </div>
         <div class="combo-body">
           <div class="combo-title-row">
@@ -2044,8 +2253,8 @@ footer {
             <span class="combo-tag" style="background:#FFF0E6;color:var(--orange);">Combo 3</span>
           </div>
           <div class="combo-price">
-            <span class="amount">$425</span>
-            <span class="currency">USD</span>
+            <span class="amount">$7,585</span>
+            <span class="currency">MXN</span>
             <span class="per">/ adulto</span>
           </div>
           <div class="combo-includes">
@@ -2122,7 +2331,7 @@ footer {
         <div class="meta">Xcaret Noche <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span></div>
       </div>
       <div class="pers-tile pt-2">
-        <img src="project/assets/parks/xenotes.jpg" alt="" loading="lazy" />
+        <img src="project/assets/parks/tour-xenotes.png" alt="" loading="lazy" />
         <div class="meta">Xenotes <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span></div>
       </div>
       <div class="pers-tile pt-3">
@@ -2130,7 +2339,7 @@ footer {
         <div class="meta">Xplor <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span></div>
       </div>
       <div class="pers-tile pt-4">
-        <img src="project/assets/parks/xoximilco.jpg" alt="" loading="lazy" />
+        <img src="project/assets/parks/xoximilco.png" alt="" loading="lazy" />
         <div class="meta">Xoximilco <span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span></div>
       </div>
       <div class="pers-stamp">
