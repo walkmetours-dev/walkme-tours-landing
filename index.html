@@ -1572,6 +1572,17 @@ footer {
 /* ---------- Responsive small tweaks ---------- */
 @media (max-width: 979px) { .hero-visual { display: none; } }
 
+@media (max-width: 899px) {
+  .nav-cta { display: none; }
+}
+
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.05;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
