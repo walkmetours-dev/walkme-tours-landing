@@ -7,7 +7,8 @@
 <meta name="description" content="Reserva tours y parques del Grupo Xcaret desde Playa del Carmen con transporte incluido. Precio taquilla, asesoría personalizada por WhatsApp y combo 3x2. Walkme Tours, agencia oficial." />
 <meta name="keywords" content="parques Xcaret Playa del Carmen, tours Xcaret transporte, Xel-Ha precio, Xenotes, Xenses, Xplor, paquetes Xcaret 3x2, agencia Xcaret PDC" />
 <meta name="theme-color" content="#3D7A35" />
-<link rel="icon" type="image/png" href="project/assets/walkme-logo.png" />
+<link rel="icon" type="image/png" sizes="any" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="Walkme Tours — Parques Xcaret + Transporte desde Playa del Carmen" />
@@ -272,20 +273,23 @@ p { margin: 0; }
 }
 .nav-mobile-menu {
   display: none;
-  position: fixed;
-  inset: 72px 0 0 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: white;
-  z-index: 49;
-  padding: 24px;
+  z-index: 200;
+  padding: 8px 24px 24px;
   flex-direction: column;
   gap: 0;
-  border-top: 1px solid var(--gray-200);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  border-top: 2px solid var(--gray-200);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.14);
+  border-radius: 0 0 16px 16px;
 }
 .nav-mobile-menu.open { display: flex; }
 .nav-mobile-menu a {
-  padding: 16px 0;
-  font-size: 17px;
+  padding: 18px 0;
+  font-size: 16px;
   font-weight: 600;
   color: var(--navy);
   border-bottom: 1px solid var(--gray-200);
