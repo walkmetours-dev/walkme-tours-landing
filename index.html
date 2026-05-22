@@ -327,7 +327,7 @@ p { margin: 0; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
-  padding: 56px 0 88px;
+  padding: 56px 0 64px;
   align-items: center;
 }
 @media (min-width: 980px) {
@@ -428,6 +428,11 @@ p { margin: 0; }
 }
 .trust-row span { display: inline-flex; align-items: center; gap: 6px; }
 .trust-row svg { color: var(--yellow); }
+.hero-wa-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
 
 /* Hero visual: stacked park photo cards */
 .hero-visual {
@@ -1591,6 +1596,140 @@ footer {
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .btn { width: 100%; }
+  .trust-row { flex-direction: column; gap: 10px; }
+}
+
+/* ============================================================
+   MEJORAS MOBILE — Hero visual + Sección Personalizada
+   ============================================================ */
+
+/* --- Hero: mostrar collage simplificado en mobile --- */
+/* Fotos mobile dentro de hero-copy — ocultas en desktop */
+.hero-mobile-photos { display: none; }
+
+@media (max-width: 979px) {
+  .hero { min-height: auto; }
+  .hero-inner { padding-bottom: 72px; }
+
+  /* hero-visual queda solo para desktop — en mobile lo reemplaza .hero-mobile-photos */
+  .hero-visual { display: none !important; }
+
+  /* hero-copy como columna flex en mobile (orden DOM es el correcto) */
+  .hero-copy { display: flex; flex-direction: column; }
+
+  .hero-mobile-photos {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+    height: 210px;
+    overflow: visible;
+  }
+  .hmp-card {
+    position: relative;
+    flex: 1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-feature);
+  }
+  .hmp-card:first-child { transform: rotate(-3deg); }
+  .hmp-card:last-child  { transform: rotate(3deg); }
+  .hmp-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .hmp-card:first-child img { object-position: center 30%; }
+  .hmp-card:last-child  img { object-position: center 25%; }
+  .hmp-label {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 10px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+  }
+}
+
+/* --- Hero eyebrow (reemplaza badge-pill) --- */
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.60);
+  letter-spacing: 0.08em;
+  margin: 0 0 2px;
+  line-height: 1.4;
+}
+
+/* --- Hero subtítulo --- */
+.hero-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.82);
+  margin: 6px 0 16px;
+  line-height: 1.45;
+}
+@media (min-width: 768px) {
+  .hero-subtitle { font-size: 19px; }
+}
+
+/* --- Hero H1: título largo — escala ajustada para 2 líneas sin overflow --- */
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.1;
+    margin: 10px 0 0;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+}
+@media (max-width: 400px) {
+  .hero h1 { font-size: clamp(22px, 6.5vw, 28px); }
+}
+
+/* --- Sección Personalizada: tipografía y layout mobile --- */
+@media (max-width: 767px) {
+  .personalized h2 {
+    font-size: clamp(22px, 7.5vw, 30px);
+    line-height: 1.1;
+  }
+  .personalized h2 .script {
+    font-size: 1em;
+  }
+  .discount-tag {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+  .discount-tag .num { font-size: 18px; }
+  .personalized .lead {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  .pers-visual {
+    height: 260px;
+    max-width: 320px;
+  }
+  .pers-stamp {
+    width: 90px;
+    height: 90px;
+    font-size: 22px;
+  }
+}
+
+/* --- Caracteres mixtos fuera de ASCII en títulos Travel Soulmates ---
+   Travel Soulmates cubre unicode-range U+0020-007E (ASCII básico).
+   Acentos y símbolos como á, ¿ caen al fallback Inter sin este fix.
+   .script-mix fuerza GT Eesti Pro Display manteniendo color y peso. */
+.pers-mix {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--pink);
+  display: inline;
+}
+.cta-mix {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--yellow);
+  display: inline;
 }
 </style>
 </head>
@@ -1638,26 +1777,34 @@ footer {
 <section class="hero" aria-label="Inicio — Paquetes Xcaret 3x2">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <span class="badge-pill"><span class="dot" aria-hidden="true"></span>Agencia Oficial Grupo Xcaret · PDC</span>
+      <p class="hero-eyebrow">Agencia oficial Grupo Xcaret · 5ta Av. Playa del Carmen</p>
       <h1>
-        Parques Xcaret<br/>
-        <span style="color:var(--yellow);">desde Playa del Carmen</span>
+        Reserva Xcaret desde Playa del Carmen
       </h1>
-      <p class="lead">
-        Reserva Xcaret Plus, Xel-Há, Xenotes, Xplor y más con precio taquilla y transporte incluido.
-        Asesoría personalizada por WhatsApp — sin filas, sin complicaciones.
-      </p>
+      <p class="hero-subtitle">Cotiza y reserva por WhatsApp. Agencia física en 5ta Av (Centro).</p>
+      <!-- Fotos mobile: visible solo en mobile, entre texto y botones -->
+      <div class="hero-mobile-photos" aria-hidden="true">
+        <div class="hmp-card">
+          <img src="project/assets/parks/xcaret-plus.png" alt="" />
+          <div class="hmp-label">Xcaret Plus</div>
+        </div>
+        <div class="hmp-card">
+          <img src="project/assets/parks/xichen-deluxe_TourCenoteXIMIY.jpg" alt="" />
+          <div class="hmp-label">Xichén Deluxe</div>
+        </div>
+      </div>
       <div class="hero-ctas">
-        <a class="btn btn-wa-light" href="https://wa.me/525639748122?text=Hola%20Walkme%20Tours,%20quiero%20reservar%20un%20parque%20Xcaret" target="_blank" rel="noopener">
+        <a class="btn btn-wa-light" href="https://wa.me/525639748122?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20un%20tour%20Xcaret%20desde%20Playa%20del%20Carmen." target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#00A651" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.6.1-.7.9-.9 1.1-.3.1-.6 0c-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
           Reservar por WhatsApp
         </a>
-        <a class="btn btn-ghost" href="mailto:walkmetravel@gmail.com">Reservar por email</a>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/gSf4LanNvkZW7DVE6" target="_blank" rel="noopener">Ver ubicación en 5ta Av</a>
       </div>
+      <p class="hero-wa-note">Te llevaremos a WhatsApp para confirmar tu reserva.</p>
       <div class="trust-row" role="list">
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Precio taquilla oficial</span>
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Transporte desde PDC incluido</span>
-        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Combo 3x2 disponible</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Agencia física en 5ta Av (Centro)</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Asesoría personalizada (Xcaret y más tours)</span>
+        <span role="listitem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Respuesta rápida por WhatsApp</span>
       </div>
     </div>
 
@@ -1667,8 +1814,8 @@ footer {
         <div class="label">Xcaret Plus</div>
       </div>
       <div class="hv-card hv-2">
-        <img src="project/assets/parks/xel-ha.jpg" alt="" />
-        <div class="label">Xel-Há</div>
+        <img src="project/assets/parks/xichen-deluxe_TourCenoteXIMIY.jpg" alt="" />
+        <div class="label">Xichén Deluxe</div>
       </div>
       <div class="hv-card hv-3">
         <img src="project/assets/parks/xenses.jpg" alt="" />
@@ -2308,7 +2455,7 @@ footer {
   <div class="container personalized-inner">
     <div>
       <span class="discount-tag"><span class="num">20%</span> de descuento</span>
-      <h2 id="pers-title"><span class="script">Personalizá</span><br/>tu Experiencia</h2>
+      <h2 id="pers-title"><span class="script">Personaliza</span><span class="script-mix pers-mix">á</span><br/>tu Experiencia</h2>
       <p class="lead">Armá tu paquete ideal combinando parques y tours. Cuantas más experiencias elegís, más ahorrás.</p>
 
       <ul class="benefit-list">
@@ -2596,7 +2743,7 @@ footer {
 <!-- ============ CTA FINAL ============ -->
 <section class="section cta-final" aria-labelledby="cta-final-title">
   <div class="container cta-final-inner">
-    <h2 id="cta-final-title"><span class="script">¿Listo</span><br/>para reservar tu experiencia?</h2>
+    <h2 id="cta-final-title"><span class="script-mix cta-mix">¿</span><span class="script">Listo</span><br/>para reservar tu experiencia?</h2>
     <p class="lead">Escríbenos por WhatsApp y te ayudamos a elegir el mejor paquete para tu viaje.</p>
     <div class="btn-wrap">
       <a class="btn btn-wa-light" href="https://wa.me/525639748122?text=Hola%20Walkme%20Tours,%20quiero%20reservar" target="_blank" rel="noopener">
